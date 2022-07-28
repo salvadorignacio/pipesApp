@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-no-comunes',
@@ -16,7 +17,7 @@ export class NoComunesComponent implements OnInit {
     'f': 'bienvenida'
   }
 
-  clientes: string [] = ['Salvador', 'Daniela'];
+  clientes: string [] = ['Salvador', 'Daniela', 'Lía', 'Loki'];
 
   clientesMapa = {
     '=0': 'no tenemos ningún cliente esperando.',
@@ -44,6 +45,20 @@ export class NoComunesComponent implements OnInit {
   }
 
   eliminarCliente () {
-    this.clientes.shift();
+    this.clientes.pop();
   }
+
+  persona = {
+    nombre: 'Salvador',
+    edad: 27,
+    direccion: 'El monte, RM, Chile'
+  }
+
+  miObservable = interval(5000); // 0,1,2...
+
+  valorPromesa = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Tenemos data de promesa');
+    }, 3500);
+  });
 }
