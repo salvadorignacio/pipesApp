@@ -13,4 +13,10 @@ export class OrdenarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  mayusculasBool : boolean = true;
+
+  cambiarMayus(){
+      this.mayusculasBool= this.mayusculasBool == true ? false : true;
+  }
+
 }
